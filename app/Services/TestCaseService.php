@@ -14,8 +14,18 @@ class TestCaseService
         //
     }
 
-    public function add(array $validated)
+    public function add(array $validated,)
     {
-        return TestCase::create($validated);
+        TestCase::create($validated);
+    }
+    public function update(array $validated, $testCase)
+    {
+        $testCase = TestCase::findOrFail($testCase);
+        $testCase->update($validated);
+    }
+    public function delete($testCase)
+    {
+        $testCase = TestCase::findOrFail($testCase);
+        $testCase->delete();
     }
 }

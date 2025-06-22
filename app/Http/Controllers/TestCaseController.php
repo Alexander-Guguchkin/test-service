@@ -5,14 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\TestCaseRequest;
 use App\Models\TestCase;
 use App\Services\TestCaseService;
+use App\Services\FeatureService;
 
 class TestCaseController extends Controller
 {
     protected TestCaseService $service;
+    protected FeatureService $featureService;
 
-    public function __construct(TestCaseService $service)
+    public function __construct(TestCaseService $service, FeatureService $featureService)
     {
         $this->service = $service;
+        $this->featureService = $featureService;
     }
 
     /**
@@ -20,7 +23,7 @@ class TestCaseController extends Controller
      */
     public function index()
     {
-        $testCases = \App\Models\TestCase::all();
+        $testCases = TestCase::all();
         return view('TestCases.index',  ['testCases' => $testCases]);
     }
 
@@ -29,7 +32,8 @@ class TestCaseController extends Controller
      */
     public function create()
     {
-        return view('TestCases.create');
+        $features = $this->featureService->getAllFeatures();
+        return view('TestCases.create', compact('features'));
     }
 
     /**
@@ -64,9 +68,7 @@ class TestCaseController extends Controller
      */
     public function update(TestCaseRequest $request, string $id)
     {
-        // @todo: сделать обновление через сервис
-        $testCase = TestCase::findOrFail($id);
-        $testCase->update($request->validated());
+        $this->service->update($request->validated(), $id);
         return redirect()->route('test-cases.index')->with('success', 'Тест-кейс обновлён');
     }
 
@@ -76,8 +78,7 @@ class TestCaseController extends Controller
     public function destroy(string $id)
     {
         // @todo: сделать удаление через сервис
-        $testCase = TestCase::findOrFail($id);
-        $testCase->delete();
+        $this->service->delete($id);
         return redirect()->route('test-cases.index')->with('success', 'Тест-кейс удалён');
     }
 }

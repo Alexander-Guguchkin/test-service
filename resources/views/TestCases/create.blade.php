@@ -19,6 +19,15 @@
             <option value="средний">Средний</option>
             <option value="низкий">Низкий</option>
         </select><br>
+        <label>Функционал:</label>
+        <select name="features[]" multiple>
+            @foreach($features as $feature)
+                <option value="{{ $feature->id }}"
+                    @if(isset($testCase) && $testCase->features->contains($feature->id)) selected @endif>
+                    {{ $feature->name }}
+                </option>
+            @endforeach
+        </select><br>
         <button type="submit">Создать</button>
     </form>
 @endsection

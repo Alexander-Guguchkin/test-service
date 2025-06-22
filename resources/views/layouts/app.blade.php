@@ -5,6 +5,7 @@
     <title>Test Cases App</title>
 </head>
 <body>
+    @include('layouts.header')
     @yield('content')
 </body>
 </html>
