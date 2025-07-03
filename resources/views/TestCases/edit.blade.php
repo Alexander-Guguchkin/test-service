@@ -21,14 +21,14 @@
             <option value="низкий" @if($testCase->priority=='низкий') selected @endif>Низкий</option>
         </select><br>
         <label>Функционал:</label>
-        <select name="features[]" multiple>
-            @foreach($features as $feature)
-                <option value="{{ $feature->id }}"
-                    @if(isset($testCase) && $testCase->features->contains($feature->id)) selected @endif>
-                    {{ $feature->name }}
-                </option>
-            @endforeach
-        </select><br>
+{{--        <select name="features[]" multiple>--}}
+{{--            @foreach($features as $feature)--}}
+{{--                <option value="{{ $feature->id }}"--}}
+{{--                    @if(isset($testCase) && $testCase->features->contains($feature->id)) selected @endif>--}}
+{{--                    {{ $feature->name }}--}}
+{{--                </option>--}}
+{{--            @endforeach--}}
+{{--        </select><br>--}}
         <button type="submit">Сохранить</button>
     </form>
 @endsection

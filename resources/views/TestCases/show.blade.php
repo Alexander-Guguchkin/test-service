@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-{{-- @dd($testCase) --}}
+{{-- @dd($testCase->features) --}}
     <h1>{{ $testCase->title }}</h1>
     <p><strong>Описание:</strong> {{ $testCase->description }}</p>
     <p><strong>Шаги:</strong> {{ $testCase->steps }}</p>
@@ -9,12 +9,12 @@
     <p><strong>Приоритет:</strong> {{ $testCase->priority }}</p>
 
     <p><strong>Функционал:</strong>
-        @if($testCase->features->count())
-            <ul>
+        @if($testCase->features->count() > 0)
+            <ol>
                 @foreach($testCase->features as $feature)
                     <li>{{ $feature->name }}</li>
                 @endforeach
-            </ul>
+            </ol>
         @else
             <span>Не назначено</span>
         @endif

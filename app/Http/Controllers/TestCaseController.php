@@ -50,7 +50,7 @@ class TestCaseController extends Controller
      */
     public function show($id)
     {
-        $testCase = TestCase::findOrFail($id);
+        $testCase = $this->service->getById($id);
         return view('TestCases.show', compact('testCase'));
     }
 
@@ -77,7 +77,6 @@ class TestCaseController extends Controller
      */
     public function destroy(string $id)
     {
-        // @todo: сделать удаление через сервис
         $this->service->delete($id);
         return redirect()->route('test-cases.index')->with('success', 'Тест-кейс удалён');
     }

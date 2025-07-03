@@ -26,7 +26,8 @@ class TestCaseRequest extends FormRequest
             "steps" => "string|required",
             "expected_results" => "string|required",
             "description" => "string|nullable",
-            "priority" => "nullable|in:высокий,средний,низкий"
+            "priority" => "nullable|in:высокий,средний,низкий",
+            "features" => "nullable"
         ];
     }
 }

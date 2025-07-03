@@ -22,8 +22,7 @@
         <label>Функционал:</label>
         <select name="features[]" multiple>
             @foreach($features as $feature)
-                <option value="{{ $feature->id }}"
-                    @if(isset($testCase) && $testCase->features->contains($feature->id)) selected @endif>
+                <option value="{{ $feature->id }}">
                     {{ $feature->name }}
                 </option>
             @endforeach

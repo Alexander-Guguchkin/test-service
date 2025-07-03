@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('feature_test_case', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('feature_id')->constrained()->onDelete('cascade');
-            $table->foreignId('test_case_id')->constrained()->onDelete('cascade');
-            $table->timestamps();
+            $table->unsignedBigInteger('test_case_id');
+            $table->unsignedBigInteger('feature_id');
+            $table->timestamps(); // опционально, если нужны метки времени
+
+            $table->foreign('test_case_id')->references('id')->on('test_cases')->onDelete('cascade');
+            $table->foreign('feature_id')->references('id')->on('features')->onDelete('cascade');
+
+            $table->primary(['test_case_id', 'feature_id']); // составной первичный ключ
         });
     }
 
