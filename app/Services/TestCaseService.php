@@ -20,7 +20,6 @@ class TestCaseService
     {
         $testCase = $this->model->create($validated);
         $testCase->features()->attach($validated['features']);
-        Log::info('Тест-кейс создан', ['test_case_id' => $testCase->id, 'data' => $validated]);
         return $testCase;
     }
     public function update(array $validated, $id)

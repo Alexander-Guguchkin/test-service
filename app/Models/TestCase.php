@@ -1,8 +1,9 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Feature;
+use App\Models\Comment;
 
 class TestCase extends Model
 {
@@ -11,5 +12,9 @@ class TestCase extends Model
     public function features()
     {
         return $this->belongsToMany(Feature::class);
+    }
+
+    public function comments() {
+        return $this->hasMany(Comment::class, 'test_id');
     }
 }

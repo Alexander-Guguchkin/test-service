@@ -50,8 +50,9 @@ class TestCaseController extends Controller
      */
     public function show($id)
     {
-        $testCase = $this->service->getById($id);
-        return view('TestCases.show', compact('testCase'));
+        $testCase = TestCase::with('features')->findOrFail($id);
+        $comments = $testCase->comments()->orderByDesc('created_at')->paginate(5);
+        return view('TestCases.show', compact('testCase', 'comments'));
     }
 
     /**

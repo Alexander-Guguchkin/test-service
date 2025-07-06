@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <div class="card">
+    <div class="card mb-4">
         <div class="card-header">
             <h2 class="mb-0">{{ $testCase->title }}</h2>
         </div>
@@ -41,5 +41,82 @@
             <a href="{{ route('test-cases.index') }}" class="btn btn-secondary btn-sm">Назад к списку</a>
         </div>
     </div>
+
+    <!-- Форма для добавления или редактирования комментария -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <strong>
+                @if(isset($editComment))
+                    Редактировать комментарий
+                @else
+                    Добавить комментарий
+                @endif
+            </strong>
+        </div>
+        <div class="card-body">
+            @if(isset($editComment))
+                <form method="POST" action="{{ route('comments.update', $editComment->id) }}">
+                    @csrf
+                    @method('PUT')
+                    <input type="hidden" name="test_case_id" value="{{ $testCase->id }}">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Комментарий (Markdown):</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="4">{{ old('comment', $editComment->comment) }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Сохранить</button>
+                    <a href="{{ route('test-cases.show', $testCase->id) }}" class="btn btn-secondary">Отмена</a>
+                </form>
+            @else
+                <form method="POST" action="{{ route('comments.store') }}">
+                    @csrf
+                    <input type="hidden" name="test_case_id" value="{{ $testCase->id }}">
+                    <div class="mb-3">
+                        <label for="comment" class="form-label">Комментарий (Markdown):</label>
+                        <textarea class="form-control" id="comment" name="comment" rows="4">{{ old('comment') }}</textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success">Отправить</button>
+                </form>
+            @endif
+        </div>
+    </div>
+
+    <!-- Список комментариев -->
+    <div class="card">
+        <div class="card-header">
+            <strong>Комментарии</strong>
+        </div>
+        <div class="card-body p-0">
+            @forelse($comments as $comment)
+                <div class="border-bottom px-3 py-2">
+                    <div class="d-flex justify-content-between align-items-center mb-1">
+                        <div class="text-muted small">
+                            {{ $comment->created_at->format('d.m.Y H:i') }}
+                        </div>
+                        {{-- <div>
+                            <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-sm btn-primary">Редактировать</a>
+                            <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить этот комментарий?')">Удалить</button>
+                            </form>
+                        </div> --}}
+                    </div>
+                    <div>
+                        {!! \Illuminate\Support\Str::markdown($comment->comment) !!}
+                    </div>
+                </div>
+            @empty
+                <div class="p-3"><span class="text-muted">Комментариев пока нет.</span></div>
+            @endforelse
+        </div>
+        @if($comments->hasPages())
+            <div class="card-footer">
+                {{ $comments->links() }}
+            </div>
+        @endif
+    </div>
 </div>
+<script>
+    new EasyMDE({ element: document.getElementById('comment') });
+</script>
 @endsection
