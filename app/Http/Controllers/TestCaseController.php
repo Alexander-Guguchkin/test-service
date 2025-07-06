@@ -60,7 +60,8 @@ class TestCaseController extends Controller
     public function edit($id)
     {
         $testCase = TestCase::findOrFail($id);
-        return view('TestCases.edit', compact('testCase'));
+        $features = $this->featureService->getAllFeatures();
+        return view('TestCases.edit', compact('testCase', 'features'));
     }
 
     /**
