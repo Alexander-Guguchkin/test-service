@@ -15,7 +15,7 @@ class FeatureService
     }
     public function getAllFeatures()
     {
-        return Feature::all();
+        return Feature::orderBy('created_at', 'desc')->paginate(10);
     }
     public function getFeature($feature)
     {
