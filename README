@@ -4,3 +4,5 @@ docker compose run composer install
 docker compose run artisan key:generate
 Запуск миграций
 docker compose run artisan migrate
+Запуск artisan команд
+docker compose run artisan <artisan_command>
