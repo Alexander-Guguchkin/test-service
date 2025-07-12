@@ -54,29 +54,17 @@
             </strong>
         </div>
         <div class="card-body">
-            @if(isset($editComment))
-                <form method="POST" action="{{ route('comments.update', $editComment->id) }}">
+                <form method="POST" action="{{ route('comments.store') }}">
                     @csrf
-                    @method('PUT')
-                    <input type="hidden" name="test_case_id" value="{{ $testCase->id }}">
+                    @method('POST')
+                    <input type="hidden" name="test_id" value="{{ $testCase->id }}">
                     <div class="mb-3">
                         <label for="comment" class="form-label">Комментарий (Markdown):</label>
-                        <textarea class="form-control" id="comment" name="comment" rows="4">{{ old('comment', $editComment->comment) }}</textarea>
+                        <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
                     </div>
                     <button type="submit" class="btn btn-primary">Сохранить</button>
                     <a href="{{ route('test-cases.show', $testCase->id) }}" class="btn btn-secondary">Отмена</a>
                 </form>
-            @else
-                <form method="POST" action="{{ route('comments.store') }}">
-                    @csrf
-                    <input type="hidden" name="test_case_id" value="{{ $testCase->id }}">
-                    <div class="mb-3">
-                        <label for="comment" class="form-label">Комментарий (Markdown):</label>
-                        <textarea class="form-control" id="comment" name="comment" rows="4">{{ old('comment') }}</textarea>
-                    </div>
-                    <button type="submit" class="btn btn-success">Отправить</button>
-                </form>
-            @endif
         </div>
     </div>
 
@@ -92,14 +80,6 @@
                         <div class="text-muted small">
                             {{ $comment->created_at->format('d.m.Y H:i') }}
                         </div>
-                        {{-- <div>
-                            <a href="{{ route('comments.edit', $comment->id) }}" class="btn btn-sm btn-primary">Редактировать</a>
-                            <form action="{{ route('comments.destroy', $comment->id) }}" method="POST" style="display:inline;">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Удалить этот комментарий?')">Удалить</button>
-                            </form>
-                        </div> --}}
                     </div>
                     <div>
                         {!! \Illuminate\Support\Str::markdown($comment->comment) !!}

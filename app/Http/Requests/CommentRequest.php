@@ -22,8 +22,8 @@ class CommentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'comment'=> 'required|string',
-            'test_id' => 'required|exists:test_cases,id', // Ensure test_id exists in test_cases table
+            'comment' => 'required|string',
+            'test_id' => 'required'
         ];
     }
 }

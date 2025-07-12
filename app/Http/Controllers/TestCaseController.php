@@ -51,7 +51,7 @@ class TestCaseController extends Controller
     public function show($id)
     {
         $testCase = TestCase::with('features')->findOrFail($id);
-        $comments = $testCase->comments()->orderByDesc('created_at')->paginate(5);
+        $comments = $testCase->comments()->orderByDesc('created_at')->paginate(10);
         return view('TestCases.show', compact('testCase', 'comments'));
     }
 
