@@ -24,7 +24,7 @@ class TestCaseController extends Controller
     public function index()
     {
         $testCases = TestCase::orderBy('created_at', 'desc')->paginate(10);
-        return view('TestCases.index',  ['testCases' => $testCases]);
+        return view('TestCases.index',  compact('testCases'));
     }
 
     /**

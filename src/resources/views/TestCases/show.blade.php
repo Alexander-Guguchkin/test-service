@@ -3,18 +3,19 @@
 @section('content')
 <div class="container mt-4">
     <div class="card mb-4">
-        <div class="card-header">
+        <div class="card-header d-flex justify-content-between">
             <h2 class="mb-0">{{ $testCase->title }}</h2>
+            <h2 class="mb-0">{{ $testCase->card_number }}</h2>
         </div>
         <div class="card-body">
             <p><strong>Описание:</strong><br>
-                {!! nl2br(e($testCase->description)) !!}
+                {!! \Illuminate\Support\Str::markdown($testCase->description) !!}
             </p>
             <p><strong>Шаги:</strong><br>
-                {!! nl2br(e($testCase->steps)) !!}
+                {!! \Illuminate\Support\Str::markdown($testCase->steps) !!}
             </p>
             <p><strong>Ожидаемый результат:</strong><br>
-                {!! nl2br(e($testCase->expected_results)) !!}
+                {!! \Illuminate\Support\Str::markdown($testCase->expected_results) !!}
             </p>
             <p><strong>Приоритет:</strong> {{ $testCase->priority }}</p>
             <p><strong>Функционал:</strong>
@@ -62,8 +63,7 @@
                         <label for="comment" class="form-label">Комментарий (Markdown):</label>
                         <textarea class="form-control" id="comment" name="comment" rows="4"></textarea>
                     </div>
-                    <button type="submit" class="btn btn-primary">Сохранить</button>
-                    <a href="{{ route('test-cases.show', $testCase->id) }}" class="btn btn-secondary">Отмена</a>
+                    <button type="submit" class="btn btn-primary">Добавить</button>
                 </form>
         </div>
     </div>

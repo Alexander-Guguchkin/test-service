@@ -11,6 +11,10 @@
                 <input type="text" class="form-control" id="title" name="title" value="{{ $testCase->title }}" required>
             </div>
             <div class="mb-3">
+                <label for="title" class="form-label">Номер карточки:</label>
+                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Введите номер тестируемой карточки (необязательно)" value="{{ $testCase->card_number }}">
+            </div>
+            <div class="mb-3">
                 <label for="description" class="form-label">Описание:</label>
                 <textarea class="form-control" id="description" name="description">{{ $testCase->description }}</textarea>
             </div>

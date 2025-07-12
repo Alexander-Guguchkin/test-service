@@ -11,14 +11,13 @@
             <ul class="list-group list-group-flush mb-0">
                 @forelse($testCases as $testCase)
                     <li class="list-group-item">
-                        <a href="{{ route('test-cases.show', $testCase->id) }}">{{ $testCase->title }}</a>
+                        <a href="{{ route('test-cases.show', $testCase->id) }}">{{ $testCase->title . " " .$testCase->card_number}}</a>
                     </li>
                 @empty
                     <li class="list-group-item text-muted">Нет тест-кейсов</li>
                 @endforelse
             </ul>
         </div>
-            {{-- Пагинация после списка --}}
     @if($testCases->hasPages())
         <div class="card-footer">
             {{ $testCases->links() }}

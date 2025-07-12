@@ -7,7 +7,7 @@ use App\Models\Comment;
 
 class TestCase extends Model
 {
-    protected $fillable = ['title', 'description', 'steps', 'expected_results', 'priority'];
+    protected $fillable = ['title', 'description', 'steps', 'expected_results', 'priority', 'card_number'];
 
     public function features()
     {

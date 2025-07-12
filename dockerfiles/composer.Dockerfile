@@ -1,4 +1,4 @@
-FROM composer:latest-alpine
+FROM composer:latest
 
 WORKDIR /var/www/laravel
 
