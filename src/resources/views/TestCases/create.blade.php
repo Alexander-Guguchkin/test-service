@@ -10,8 +10,8 @@
                 <input type="text" class="form-control" id="title" name="title" placeholder="Введите название карточки (обязательно)" required >
             </div>
             <div class="mb-3">
-                <label for="title" class="form-label">Номер карточки:</label>
-                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Введите номер тестируемой карточки (обязательно)" required>
+                <label for="title" class="form-label">Номер карточки и имя:</label>
+                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Введите номер и имя тестируемой карточки (обязательно)" required>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Ссылка на карточку в трекере:</label>
@@ -28,6 +28,14 @@
             <div class="mb-3">
                 <label for="expected_results" class="form-label">Ожидаемый результат:</label>
                 <textarea class="form-control" id="expected_results" name="expected_results"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Заметки:</label>
+                <textarea class="form-control" id="notes" name="notes"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="description" class="form-label">Вопросы:</label>
+                <textarea class="form-control" id="questions" name="questions"></textarea>
             </div>
             <div class="mb-3">
                 <label for="priority" class="form-label">Приоритет:</label>
@@ -55,5 +63,7 @@
         new EasyMDE({ element: document.getElementById('description') });
         new EasyMDE({ element: document.getElementById('steps') });
         new EasyMDE({ element: document.getElementById('expected_results') });
+        new EasyMDE({ element: document.getElementById('notes') });
+        new EasyMDE({ element: document.getElementById('questions') });
     </script>
 @endsection

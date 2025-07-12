@@ -3,11 +3,15 @@
 @section('content')
 <div class="container mt-4">
     <div class="card mb-4">
-        <div class="card-header d-flex justify-content-between">
-            <h2 class="mb-0">{{ $testCase->title }}</h2>
-            <h2 class="mb-0"><a href="{{ $testCase->link_task }}">{{ $testCase->card_number }}</a></h2>
+        <div class="card-header d-flex justify-content-between w-0.5">
+            <h2 class="mb-0 ">{{ $testCase->title }}</h2>
+            
         </div>
         <div class="card-body">
+            <p class="mb-0">
+                <strong>Карточка в трекере:</strong>
+                <a href="{{ $testCase->link_task }}">{{ $testCase->card_number }}</a>
+            </p>
             <p><strong>Описание:</strong><br>
                 {!! \Illuminate\Support\Str::markdown($testCase->description) !!}
             </p>
@@ -16,6 +20,20 @@
             </p>
             <p><strong>Ожидаемый результат:</strong><br>
                 {!! \Illuminate\Support\Str::markdown($testCase->expected_results) !!}
+            </p>
+            <p><strong>Заметки:</strong><br>
+                @if($testCase->notes)
+                    {!! \Illuminate\Support\Str::markdown($testCase->notes) !!}
+                @else
+                    Заметок нет
+                @endif
+            </p>
+            <p><strong>Вопросы:</strong><br>
+                @if($testCase->notes)
+                    {!! \Illuminate\Support\Str::markdown($testCase->questions) !!}
+                @else
+                    Вопросов нет
+                @endif
             </p>
             <p><strong>Приоритет:</strong> {{ $testCase->priority }}</p>
             <p><strong>Функционал:</strong>

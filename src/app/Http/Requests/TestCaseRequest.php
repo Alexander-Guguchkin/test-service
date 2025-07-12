@@ -29,6 +29,8 @@ class TestCaseRequest extends FormRequest
             "priority" => "nullable|in:высокий,средний,низкий",
             "card_number" => "string|required",
             "link_task"=> "string|required",
+            "questions" => "string|nullable",
+            "notes" => "string|nullable",
             "features" => "nullable"
         ];
     }
