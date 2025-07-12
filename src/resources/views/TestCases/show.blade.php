@@ -5,7 +5,7 @@
     <div class="card mb-4">
         <div class="card-header d-flex justify-content-between">
             <h2 class="mb-0">{{ $testCase->title }}</h2>
-            <h2 class="mb-0">{{ $testCase->card_number }}</h2>
+            <h2 class="mb-0"><a href="{{ $testCase->link_task }}">{{ $testCase->card_number }}</a></h2>
         </div>
         <div class="card-body">
             <p><strong>Описание:</strong><br>

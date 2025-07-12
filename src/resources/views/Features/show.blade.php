@@ -9,7 +9,7 @@
         </div>
         <div class="card-body">
             <p><strong>Описание:</strong><br>
-                {{ $feature->description }}
+                {!! \Illuminate\Support\Str::markdown($feature->description ) !!}
             </p>
         </div>
         <div class="card-footer d-flex justify-content-between align-items-center">

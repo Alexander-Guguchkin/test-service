@@ -10,8 +10,9 @@
         <div class="card-body p-0">
             <ul class="list-group list-group-flush mb-0">
                 @forelse($testCases as $testCase)
-                    <li class="list-group-item">
-                        <a href="{{ route('test-cases.show', $testCase->id) }}">{{ $testCase->title . " " .$testCase->card_number}}</a>
+                    <li class="list-group-item d-flex justify-content-between">
+                        <a href="{{ route('test-cases.show', $testCase->id) }}">{{ $testCase->title}}</a>
+                        <a href="{{$testCase->link_task}}">{{$testCase->card_number}}</a>
                     </li>
                 @empty
                     <li class="list-group-item text-muted">Нет тест-кейсов</li>

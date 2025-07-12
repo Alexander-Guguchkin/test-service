@@ -8,11 +8,15 @@
             @method('PUT')
             <div class="mb-3">
                 <label for="title" class="form-label">Название:</label>
-                <input type="text" class="form-control" id="title" name="title" value="{{ $testCase->title }}" required>
+                <input type="text" class="form-control" id="title" name="title" value="{{ $testCase->title }}" placeholder="Введите название карточки (обязательно)" required>
             </div>
             <div class="mb-3">
                 <label for="title" class="form-label">Номер карточки:</label>
-                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Введите номер тестируемой карточки (необязательно)" value="{{ $testCase->card_number }}">
+                <input type="text" class="form-control" id="card_number" name="card_number" placeholder="Введите номер тестируемой карточки (необязательно)" value="{{ $testCase->card_number }}" required>
+            </div>
+            <div class="mb-3">
+                <label for="title" class="form-label">Ссылка на карточку в трекере:</label>
+                <input type="text" class="form-control" id="link_task" name="link_task" placeholder="Введите ссылку тестируемой карточки (необязательно)" value="{{ $testCase->link_task }}" required >
             </div>
             <div class="mb-3">
                 <label for="description" class="form-label">Описание:</label>
