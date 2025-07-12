@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::table('test_cases', function (Blueprint $table) {
-            $table->string('card_number')->after('priority');
+            $table->string('link_task')->after('card_number');
         });
     }
 
