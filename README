@@ -1,0 +1,6 @@
+Установка зависимостей
+docker compose run composer install
+Генерация ключа приложения
+docker compose run artisan key:generate
+Запуск миграций
+docker compose run artisan migrate
