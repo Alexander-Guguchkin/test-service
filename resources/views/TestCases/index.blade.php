@@ -18,6 +18,12 @@
                 @endforelse
             </ul>
         </div>
+            {{-- Пагинация после списка --}}
+    @if($testCases->hasPages())
+        <div class="card-footer">
+            {{ $testCases->links() }}
+        </div>
+    @endif
     </div>
 </div>
 @endsection

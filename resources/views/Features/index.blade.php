@@ -18,6 +18,11 @@
                 @endforelse
             </ul>
         </div>
+            @if($features->hasPages())
+    <div class="card-footer">
+            {{ $features->links() }}
+        </div>
+    @endif
     </div>
 </div>
 @endsection
