@@ -9,6 +9,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('features.index') }}">Функционал</a>
                 </li>
+                @auth
+                    <li class="nav-item d-flex align-items-center">
+                        <span class="nav-link fw-semibold">{{ Auth::user()->name }}</span>
+                    </li>
+                    <li class="nav-item">
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit" class="btn btn-danger ms-2">Выйти</button>
+                        </form>
+                    </li>
+                @endauth
             </ul>
         </div>
     </div>
