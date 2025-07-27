@@ -23,16 +23,16 @@ class FeatureService
     }
     public function add(array $validated)
     {
-        Feature::create($validated);
+        return Feature::create($validated);
     }
     public function update(array $validated, $feature)
     {
         $feature = Feature::findOrFail($feature);
-        $feature->update($validated);
+        return $feature->update($validated);
     }
     public function delete($feature)
     {
         $feature = Feature::findOrFail($feature);
-        $feature->delete();
+        return $feature->delete();
     }
 }

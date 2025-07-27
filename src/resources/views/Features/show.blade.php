@@ -11,6 +11,13 @@
             <p><strong>Описание:</strong><br>
                 {!! \Illuminate\Support\Str::markdown($feature->description ) !!}
             </p>
+            <p><strong>Вопросы:</strong><br>
+                @if($feature->questions)
+                    {!! \Illuminate\Support\Str::markdown($feature->questions) !!}
+                @else
+                    Вопросов нет
+                @endif
+            </p>
         </div>
         <div class="card-footer d-flex justify-content-between align-items-center">
             <div>

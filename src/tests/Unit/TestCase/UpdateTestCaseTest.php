@@ -1,11 +1,12 @@
 <?php
 
+
 namespace Tests\Unit\TestCase;
 
 use App\Services\TestCaseService;
 use Faker\Factory;
 use Mockery;
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class UpdateTestCaseTest extends TestCase
 {
