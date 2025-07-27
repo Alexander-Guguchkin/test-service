@@ -18,14 +18,24 @@ class TestCaseService
 
     public function add(array $validated)
     {
+        $features = $validated['features'] ?? [];
+        unset($validated['features']);
         $testCase = $this->model->create($validated);
-        $testCase->features()->attach($validated['features']);
+        if (!empty($features)) {
+            $testCase->features()->attach($features);
+        }
         return $testCase;
     }
     public function update(array $validated, $id)
     {
-        $testCase =$this->model->findOrFail($id);
-        return $testCase->update($validated);
+        $testCase = $this->model->findOrFail($id);
+        $features = $validated['features'] ?? null;
+        unset($validated['features']);
+        $testCase->update($validated);
+        if ($features !== null) {
+            $testCase->features()->sync($features);
+        }
+        return $testCase;
     }
     public function delete($id)
     {
