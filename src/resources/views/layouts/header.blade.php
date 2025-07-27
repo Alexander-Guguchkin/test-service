@@ -11,7 +11,7 @@
                 </li>
                 @auth
                     <li class="nav-item d-flex align-items-center">
-                        <span class="nav-link fw-semibold">{{ Auth::user()->name }}</span>
+                        <a class="nav-link fw-semibold" href="{{ route('user.show') }}">{{ Auth::user()->name }}</a>
                     </li>
                     <li class="nav-item">
                         <form method="POST" action="{{ route('logout') }}">
