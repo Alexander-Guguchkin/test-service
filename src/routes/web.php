@@ -5,6 +5,7 @@ use App\Http\Controllers\TestCaseController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\UserController;
+use Inertia\Inertia;
 
 Route::middleware(['auth'])->group(function () {
     Route::redirect('/', '/test-cases')->name('home');
@@ -19,4 +20,8 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [UserController::class, 'show'])->name('show');
         Route::put('/', [UserController::class, 'update'])->name('update');
     });
+    Route::get('/TEST', function () {
+        return Inertia::render('TestPage');
+    });
+
 });

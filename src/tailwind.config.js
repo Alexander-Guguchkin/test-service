@@ -1,0 +1,32 @@
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    './resources/**/*.blade.php',   // Blade-шаблоны
+    './resources/**/*.js',           // JS файлы
+    './resources/**/*.vue',          // Vue компоненты
+    './node_modules/@primeuix/themes/dist/**/*.js', // PrimeUIX темы
+  ],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+        },
+      },
+    },
+  },
+  plugins: [
+    require('@tailwindcss/forms'),   // если нужны формы
+    require('@tailwindcss/typography'), // для типографики
+  ],
+  darkMode: 'class', // включаем темную тему по классу
+};
