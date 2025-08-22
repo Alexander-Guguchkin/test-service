@@ -1,3 +1,4 @@
+import '../css/app.css';
 import './bootstrap';
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
@@ -39,13 +40,13 @@ createInertiaApp({
             .use(plugin)
             .use(PrimeVue, {
                 theme: {
-                    preset: Noir, // ⚡ используем кастомный пресет
+                    preset: Noir,
                     options: {
                         prefix: 'p',
                         darkModeSelector: '.my-app-dark',
                         cssLayer: {
                             name: 'primevue',
-                            order: 'app-styles, primevue, another-css-library'
+                            order: 'theme, base, primevue'
                         }
                     }
                 }

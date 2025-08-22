@@ -21,7 +21,10 @@ Route::middleware(['auth'])->group(function () {
         Route::put('/', [UserController::class, 'update'])->name('update');
     });
     Route::get('/TEST', function () {
-        return Inertia::render('TestPage');
+        return Inertia::render('TestCases/Index', [
+            'testCases' => [],
+            'features' => [],
+        ]);
     });
 
 });
