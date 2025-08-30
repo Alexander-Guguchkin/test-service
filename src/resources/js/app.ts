@@ -50,15 +50,6 @@ const Noir = definePreset(Aura, {
                     focusColor: 'rgba(255,255,255,.87)'
                 }
             },
-            //  проверить на  input
-            semantic: {
-                focusRing: {
-                    width: '2px',
-                    style: 'dashed',
-                    color: '{primary.color}',
-                    offset: '1px'
-                }
-            }
         }
     }
 });
