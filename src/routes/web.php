@@ -19,6 +19,9 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', [UserController::class, 'show'])->name('show');
         Route::put('/', [UserController::class, 'update'])->name('update');
     });
-    Route::inertia('/TEST', 'TestCases/Index')->name('test');
+    Route::get('/TEST', function () {
+        return Inertia::render('TestCases/Index');
+    });
+
 
 });
