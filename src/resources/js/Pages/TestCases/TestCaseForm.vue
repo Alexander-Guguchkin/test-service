@@ -1,16 +1,15 @@
-<template></template>
-<script setup></script>
-<!-- <script setup >
+<script setup >
 import { ref } from 'vue';
 import { useForm } from '@inertiajs/vue3';
-import InputText from 'primevue/inputtext';
-import Textarea from 'primevue/textarea';
-import Dropdown from 'primevue/dropdown';
-import MultiSelect from 'primevue/multiselect';
-import Button from 'primevue/button';
-import Card from 'primevue/card';
+import {store} from "@/actions/App/Http/Controllers/FeatureController.js"
+import { defineProps } from 'vue';
 
-// Определяем доступные приоритеты
+const props = defineProps({
+    features:Object
+})
+const test = [...props.features.data]
+
+console.log(test)
 const priorities = ref([
     { label: 'Не выбран', value: null },
     { label: 'Высокий', value: 'высокий' },
@@ -18,7 +17,7 @@ const priorities = ref([
     { label: 'Низкий', value: 'низкий' }
 ]);
 
-// Создаем форму с начальными значениями
+
 const form = useForm({
     title: '',
     card_number: '',
@@ -32,9 +31,8 @@ const form = useForm({
     features: []
 });
 
-// Функция отправки формы
 const submit = () => {
-    form.post(route('test-cases.store'));
+    form.post(store);
 };
 </script>
 
@@ -167,7 +165,8 @@ const submit = () => {
                                 <MultiSelect
                                     id="features"
                                     v-model="form.features"
-                                    :options="$page.props.features"
+                                    :options="props.features.data"
+                                    filter
                                     optionLabel="name"
                                     optionValue="id"
                                     placeholder="Выберите функционал"
@@ -192,4 +191,4 @@ const submit = () => {
             </div>
         </div>
 </template>
- -->
+

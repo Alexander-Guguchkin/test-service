@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\FeatureRequest;
 use App\Services\FeatureService;
-
+use Inertia\Inertia;
 class FeatureController extends Controller
 {
     protected FeatureService $service;
@@ -20,7 +20,7 @@ class FeatureController extends Controller
     public function index()
     {
         $features = $this->service->getAllFeatures();
-        return view('Features.index', ['features' => $features]);
+        return Inertia::render('Features/Index', ['features' => $features]);
     }
 
     /**
@@ -28,7 +28,8 @@ class FeatureController extends Controller
      */
     public function create()
     {
-        return view('Features.create');
+        return Inertia::render('Features/FeaturesForm');
+        // return view('Features.create');
     }
 
     /**

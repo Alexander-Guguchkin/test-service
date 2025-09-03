@@ -5,6 +5,7 @@ import { createInertiaApp } from '@inertiajs/vue3'
 import PrimeVue from 'primevue/config';
 import Aura from '@primeuix/themes/aura';
 import { definePreset } from '@primeuix/themes';
+import {routes} from '@/routes/index'
 const Noir = definePreset(Aura, {
     semantic: {
         focusRing: { width: '2px', style: 'dashed', color: '{primary.color}', offset: '1px' },

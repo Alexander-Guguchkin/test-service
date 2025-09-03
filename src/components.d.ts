@@ -8,6 +8,22 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    Avatar: typeof import('primevue/avatar')['default']
+    Badge: typeof import('primevue/badge')['default']
     Button: typeof import('primevue/button')['default']
+    Card: typeof import('primevue/card')['default']
+    Column: typeof import('primevue/column')['default']
+    DataTable: typeof import('primevue/datatable')['default']
+    Dropdown: typeof import('primevue/dropdown')['default']
+    Editor: typeof import('primevue/editor')['default']
+    Form: typeof import('@primevue/forms/form')['default']
+    InputText: typeof import('primevue/inputtext')['default']
+    Menu: typeof import('primevue/menu')['default']
+    MultiSelect: typeof import('primevue/multiselect')['default']
+    Textarea: typeof import('primevue/textarea')['default']
+  }
+  export interface GlobalDirectives {
+    Ripple: typeof import('primevue/ripple')['default']
+    Tooltip: typeof import('primevue/tooltip')['default']
   }
 }

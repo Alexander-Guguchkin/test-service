@@ -89,7 +89,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\FeatureController::store
-* @see app/Http/Controllers/FeatureController.php:37
+* @see app/Http/Controllers/FeatureController.php:38
 * @route '/features'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -104,7 +104,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\FeatureController::store
-* @see app/Http/Controllers/FeatureController.php:37
+* @see app/Http/Controllers/FeatureController.php:38
 * @route '/features'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -113,7 +113,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\FeatureController::store
-* @see app/Http/Controllers/FeatureController.php:37
+* @see app/Http/Controllers/FeatureController.php:38
 * @route '/features'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -123,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\FeatureController::show
-* @see app/Http/Controllers/FeatureController.php:46
+* @see app/Http/Controllers/FeatureController.php:47
 * @route '/features/{feature}'
 */
 export const show = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -138,7 +138,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\FeatureController::show
-* @see app/Http/Controllers/FeatureController.php:46
+* @see app/Http/Controllers/FeatureController.php:47
 * @route '/features/{feature}'
 */
 show.url = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -165,7 +165,7 @@ show.url = (args: { feature: string | number } | [feature: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\FeatureController::show
-* @see app/Http/Controllers/FeatureController.php:46
+* @see app/Http/Controllers/FeatureController.php:47
 * @route '/features/{feature}'
 */
 show.get = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -175,7 +175,7 @@ show.get = (args: { feature: string | number } | [feature: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\FeatureController::show
-* @see app/Http/Controllers/FeatureController.php:46
+* @see app/Http/Controllers/FeatureController.php:47
 * @route '/features/{feature}'
 */
 show.head = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -185,7 +185,7 @@ show.head = (args: { feature: string | number } | [feature: string | number ] | 
 
 /**
 * @see \App\Http\Controllers\FeatureController::edit
-* @see app/Http/Controllers/FeatureController.php:55
+* @see app/Http/Controllers/FeatureController.php:56
 * @route '/features/{feature}/edit'
 */
 export const edit = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -200,7 +200,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\FeatureController::edit
-* @see app/Http/Controllers/FeatureController.php:55
+* @see app/Http/Controllers/FeatureController.php:56
 * @route '/features/{feature}/edit'
 */
 edit.url = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -227,7 +227,7 @@ edit.url = (args: { feature: string | number } | [feature: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\FeatureController::edit
-* @see app/Http/Controllers/FeatureController.php:55
+* @see app/Http/Controllers/FeatureController.php:56
 * @route '/features/{feature}/edit'
 */
 edit.get = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -237,7 +237,7 @@ edit.get = (args: { feature: string | number } | [feature: string | number ] | s
 
 /**
 * @see \App\Http\Controllers\FeatureController::edit
-* @see app/Http/Controllers/FeatureController.php:55
+* @see app/Http/Controllers/FeatureController.php:56
 * @route '/features/{feature}/edit'
 */
 edit.head = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -247,7 +247,7 @@ edit.head = (args: { feature: string | number } | [feature: string | number ] | 
 
 /**
 * @see \App\Http\Controllers\FeatureController::update
-* @see app/Http/Controllers/FeatureController.php:64
+* @see app/Http/Controllers/FeatureController.php:65
 * @route '/features/{feature}'
 */
 export const update = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -262,7 +262,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\FeatureController::update
-* @see app/Http/Controllers/FeatureController.php:64
+* @see app/Http/Controllers/FeatureController.php:65
 * @route '/features/{feature}'
 */
 update.url = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -289,7 +289,7 @@ update.url = (args: { feature: string | number } | [feature: string | number ] |
 
 /**
 * @see \App\Http\Controllers\FeatureController::update
-* @see app/Http/Controllers/FeatureController.php:64
+* @see app/Http/Controllers/FeatureController.php:65
 * @route '/features/{feature}'
 */
 update.put = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -299,7 +299,7 @@ update.put = (args: { feature: string | number } | [feature: string | number ] |
 
 /**
 * @see \App\Http\Controllers\FeatureController::update
-* @see app/Http/Controllers/FeatureController.php:64
+* @see app/Http/Controllers/FeatureController.php:65
 * @route '/features/{feature}'
 */
 update.patch = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -309,7 +309,7 @@ update.patch = (args: { feature: string | number } | [feature: string | number ]
 
 /**
 * @see \App\Http\Controllers\FeatureController::destroy
-* @see app/Http/Controllers/FeatureController.php:73
+* @see app/Http/Controllers/FeatureController.php:74
 * @route '/features/{feature}'
 */
 export const destroy = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -324,7 +324,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\FeatureController::destroy
-* @see app/Http/Controllers/FeatureController.php:73
+* @see app/Http/Controllers/FeatureController.php:74
 * @route '/features/{feature}'
 */
 destroy.url = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -351,7 +351,7 @@ destroy.url = (args: { feature: string | number } | [feature: string | number ] 
 
 /**
 * @see \App\Http\Controllers\FeatureController::destroy
-* @see app/Http/Controllers/FeatureController.php:73
+* @see app/Http/Controllers/FeatureController.php:74
 * @route '/features/{feature}'
 */
 destroy.delete = (args: { feature: string | number } | [feature: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({

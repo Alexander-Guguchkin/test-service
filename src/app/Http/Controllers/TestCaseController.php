@@ -6,7 +6,7 @@ use App\Http\Requests\TestCaseRequest;
 use App\Models\TestCase;
 use App\Services\TestCaseService;
 use App\Services\FeatureService;
-
+use Inertia\Inertia;
 class TestCaseController extends Controller
 {
     protected TestCaseService $service;
@@ -24,7 +24,10 @@ class TestCaseController extends Controller
     public function index()
     {
         $testCases = TestCase::orderBy('created_at', 'desc')->paginate(10);
-        return view('TestCases.index',  compact('testCases'));
+        return Inertia::render('TestCases/Index',[
+            'testCases' => $testCases
+        ]);
+        // return view('TestCases.index',  compact('testCases'));
     }
 
     /**
@@ -33,7 +36,9 @@ class TestCaseController extends Controller
     public function create()
     {
         $features = $this->featureService->getAllFeatures();
-        return view('TestCases.create', compact('features'));
+        return Inertia::render('TestCases/TestCaseForm',[
+            'features' => $features
+        ]);
     }
 
     /**
@@ -42,7 +47,7 @@ class TestCaseController extends Controller
     public function store(TestCaseRequest $request)
     {
         $testCase = $this->service->add($request->validated());
-        return redirect()->route('test-cases.index')->with('success', 'Тест-кейс создан');
+        return redirect()->route('/')->with('success', 'Тест-кейс создан');
     }
 
     /**
