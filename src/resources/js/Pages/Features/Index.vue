@@ -2,28 +2,28 @@
 import { ref, computed } from 'vue'
 import { router } from '@inertiajs/vue3'
 import MenuVertical from '@/components/MenuVertical.vue'
-import testCases from "@/routes/test-cases/index"
+import features from "@/routes/features/index"
 
 // Define props
 const props = defineProps({
-  testCases: Object
+  features: Object
 })
 
 const loading = ref(false)
 
 // Вычисляемое свойство для безопасного доступа к данным
-const testCasesData = computed(() => props.testCases?.data || [])
-const testCasesPagination = computed(() => ({
-  per_page: props.testCases?.per_page || 10,
-  total: props.testCases?.total || 0,
-  current_page: props.testCases?.current_page || 1
+const featuresData = computed(() => props.features?.data || [])
+const featuresPagination = computed(() => ({
+  per_page: props.features?.per_page || 10,
+  total: props.features?.total || 0,
+  current_page: props.features?.current_page || 1
 }))
 
 // Handle page changes
 const onPageChange = (event) => {
   loading.value = true
   const page = event.page + 1 // PrimeVue uses 0-based index, Laravel uses 1-based
-  router.visit(show)
+  router.visit(features.index.url({ page }))
 }
 
 // Navigation helper
@@ -43,62 +43,62 @@ const navigateTo = (url) => {
     <div class="flex-1 ml-64">
       <div class="container px-4 py-6 mx-auto">
         <div class="flex items-center justify-between mb-6">
-          <h1 class="text-3xl font-bold ">Список тест-кейсов</h1>
+          <h1 class="text-3xl font-bold ">Список фич</h1>
           <Button
             icon="pi pi-plus"
-            label="Создать новый тест-кейс"
+            label="Создать новую фичу"
             class="p-button-success"
-            @click="router.visit(testCases.create.url())"
+            @click="router.visit(features.create.url())"
           />
         </div>
 
         <Card>
           <template #content>
             <DataTable
-              :value="testCasesData"
+              :value="featuresData"
               :paginator="true"
-              :rows="testCasesPagination.per_page"
-              :totalRecords="testCasesPagination.total"
-              :first="(testCasesPagination.current_page - 1) * testCasesPagination.per_page"
+              :rows="featuresPagination.per_page"
+              :totalRecords="featuresPagination.total"
+              :first="(featuresPagination.current_page - 1) * featuresPagination.per_page"
               @page="onPageChange($event)"
               class="p-datatable-sm"
               :loading="loading"
               responsiveLayout="scroll"
             >
-              <!-- остальные колонки -->
-              <Column field="title" header="Название">
+              <Column field="name" header="Название">
                 <template #body="{data}">
-
-                    {{ data.title }}
-
+                  {{ data.name }}
                 </template>
               </Column>
-              <Column field="card_number" header="Номер карточки">
+
+              <Column field="description" header="Описание">
                 <template #body="{data}">
-                  <a :href="data.link_task" target="_blank" class="text-blue-600 hover:text-blue-800 hover:underline">
-                    {{ data.card_number }}
-                  </a>
+                  <div class="max-w-md truncate">
+                    {{ data.description }}
+                  </div>
                 </template>
               </Column>
+
               <Column header="Действия" style="width: 120px">
                 <template #body="{data}">
                   <div class="flex space-x-2">
                     <Button
                       icon="pi pi-eye"
                       class="p-button-text p-button-info"
-                      @click="navigateTo(route('test-cases.show', data.id))"
+                      @click="navigateTo(route('features.show', data.id))"
                     />
                     <Button
                       icon="pi pi-pencil"
                       class="p-button-text p-button-warning"
-                      @click="navigateTo(route('test-cases.edit', data.id))"
+                      @click="navigateTo(route('features.edit', data.id))"
                     />
                   </div>
                 </template>
               </Column>
+
               <template #empty>
                 <div class="p-4 text-center text-gray-500">
-                  Нет тест-кейсов
+                  Нет фич
                 </div>
               </template>
             </DataTable>

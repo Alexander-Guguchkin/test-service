@@ -45,7 +45,7 @@ index.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\TestCaseController::create
-* @see app/Http/Controllers/TestCaseController.php:33
+* @see app/Http/Controllers/TestCaseController.php:36
 * @route '/test-cases/create'
 */
 export const create = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -60,7 +60,7 @@ create.definition = {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::create
-* @see app/Http/Controllers/TestCaseController.php:33
+* @see app/Http/Controllers/TestCaseController.php:36
 * @route '/test-cases/create'
 */
 create.url = (options?: RouteQueryOptions) => {
@@ -69,7 +69,7 @@ create.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::create
-* @see app/Http/Controllers/TestCaseController.php:33
+* @see app/Http/Controllers/TestCaseController.php:36
 * @route '/test-cases/create'
 */
 create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -79,7 +79,7 @@ create.get = (options?: RouteQueryOptions): RouteDefinition<'get'> => ({
 
 /**
 * @see \App\Http\Controllers\TestCaseController::create
-* @see app/Http/Controllers/TestCaseController.php:33
+* @see app/Http/Controllers/TestCaseController.php:36
 * @route '/test-cases/create'
 */
 create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -89,7 +89,7 @@ create.head = (options?: RouteQueryOptions): RouteDefinition<'head'> => ({
 
 /**
 * @see \App\Http\Controllers\TestCaseController::store
-* @see app/Http/Controllers/TestCaseController.php:42
+* @see app/Http/Controllers/TestCaseController.php:47
 * @route '/test-cases'
 */
 export const store = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -104,7 +104,7 @@ store.definition = {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::store
-* @see app/Http/Controllers/TestCaseController.php:42
+* @see app/Http/Controllers/TestCaseController.php:47
 * @route '/test-cases'
 */
 store.url = (options?: RouteQueryOptions) => {
@@ -113,7 +113,7 @@ store.url = (options?: RouteQueryOptions) => {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::store
-* @see app/Http/Controllers/TestCaseController.php:42
+* @see app/Http/Controllers/TestCaseController.php:47
 * @route '/test-cases'
 */
 store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
@@ -123,7 +123,7 @@ store.post = (options?: RouteQueryOptions): RouteDefinition<'post'> => ({
 
 /**
 * @see \App\Http\Controllers\TestCaseController::show
-* @see app/Http/Controllers/TestCaseController.php:51
+* @see app/Http/Controllers/TestCaseController.php:56
 * @route '/test-cases/{test_case}'
 */
 export const show = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -138,7 +138,7 @@ show.definition = {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::show
-* @see app/Http/Controllers/TestCaseController.php:51
+* @see app/Http/Controllers/TestCaseController.php:56
 * @route '/test-cases/{test_case}'
 */
 show.url = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -165,7 +165,7 @@ show.url = (args: { test_case: string | number } | [test_case: string | number ]
 
 /**
 * @see \App\Http\Controllers\TestCaseController::show
-* @see app/Http/Controllers/TestCaseController.php:51
+* @see app/Http/Controllers/TestCaseController.php:56
 * @route '/test-cases/{test_case}'
 */
 show.get = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -175,7 +175,7 @@ show.get = (args: { test_case: string | number } | [test_case: string | number ]
 
 /**
 * @see \App\Http\Controllers\TestCaseController::show
-* @see app/Http/Controllers/TestCaseController.php:51
+* @see app/Http/Controllers/TestCaseController.php:56
 * @route '/test-cases/{test_case}'
 */
 show.head = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -185,7 +185,7 @@ show.head = (args: { test_case: string | number } | [test_case: string | number 
 
 /**
 * @see \App\Http\Controllers\TestCaseController::edit
-* @see app/Http/Controllers/TestCaseController.php:61
+* @see app/Http/Controllers/TestCaseController.php:66
 * @route '/test-cases/{test_case}/edit'
 */
 export const edit = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -200,7 +200,7 @@ edit.definition = {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::edit
-* @see app/Http/Controllers/TestCaseController.php:61
+* @see app/Http/Controllers/TestCaseController.php:66
 * @route '/test-cases/{test_case}/edit'
 */
 edit.url = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -227,7 +227,7 @@ edit.url = (args: { test_case: string | number } | [test_case: string | number ]
 
 /**
 * @see \App\Http\Controllers\TestCaseController::edit
-* @see app/Http/Controllers/TestCaseController.php:61
+* @see app/Http/Controllers/TestCaseController.php:66
 * @route '/test-cases/{test_case}/edit'
 */
 edit.get = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'get'> => ({
@@ -237,7 +237,7 @@ edit.get = (args: { test_case: string | number } | [test_case: string | number ]
 
 /**
 * @see \App\Http\Controllers\TestCaseController::edit
-* @see app/Http/Controllers/TestCaseController.php:61
+* @see app/Http/Controllers/TestCaseController.php:66
 * @route '/test-cases/{test_case}/edit'
 */
 edit.head = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'head'> => ({
@@ -247,7 +247,7 @@ edit.head = (args: { test_case: string | number } | [test_case: string | number 
 
 /**
 * @see \App\Http\Controllers\TestCaseController::update
-* @see app/Http/Controllers/TestCaseController.php:71
+* @see app/Http/Controllers/TestCaseController.php:76
 * @route '/test-cases/{test_case}'
 */
 export const update = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -262,7 +262,7 @@ update.definition = {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::update
-* @see app/Http/Controllers/TestCaseController.php:71
+* @see app/Http/Controllers/TestCaseController.php:76
 * @route '/test-cases/{test_case}'
 */
 update.url = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -289,7 +289,7 @@ update.url = (args: { test_case: string | number } | [test_case: string | number
 
 /**
 * @see \App\Http\Controllers\TestCaseController::update
-* @see app/Http/Controllers/TestCaseController.php:71
+* @see app/Http/Controllers/TestCaseController.php:76
 * @route '/test-cases/{test_case}'
 */
 update.put = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'put'> => ({
@@ -299,7 +299,7 @@ update.put = (args: { test_case: string | number } | [test_case: string | number
 
 /**
 * @see \App\Http\Controllers\TestCaseController::update
-* @see app/Http/Controllers/TestCaseController.php:71
+* @see app/Http/Controllers/TestCaseController.php:76
 * @route '/test-cases/{test_case}'
 */
 update.patch = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'patch'> => ({
@@ -309,7 +309,7 @@ update.patch = (args: { test_case: string | number } | [test_case: string | numb
 
 /**
 * @see \App\Http\Controllers\TestCaseController::destroy
-* @see app/Http/Controllers/TestCaseController.php:80
+* @see app/Http/Controllers/TestCaseController.php:85
 * @route '/test-cases/{test_case}'
 */
 export const destroy = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
@@ -324,7 +324,7 @@ destroy.definition = {
 
 /**
 * @see \App\Http\Controllers\TestCaseController::destroy
-* @see app/Http/Controllers/TestCaseController.php:80
+* @see app/Http/Controllers/TestCaseController.php:85
 * @route '/test-cases/{test_case}'
 */
 destroy.url = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions) => {
@@ -351,7 +351,7 @@ destroy.url = (args: { test_case: string | number } | [test_case: string | numbe
 
 /**
 * @see \App\Http\Controllers\TestCaseController::destroy
-* @see app/Http/Controllers/TestCaseController.php:80
+* @see app/Http/Controllers/TestCaseController.php:85
 * @route '/test-cases/{test_case}'
 */
 destroy.delete = (args: { test_case: string | number } | [test_case: string | number ] | string | number, options?: RouteQueryOptions): RouteDefinition<'delete'> => ({
